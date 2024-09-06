@@ -27,20 +27,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             scroll-snap-align: start;
         }
         .section1 {
             background-color: #f0f0f0;
+            flex-direction: row; /* Arrange items in a row */
         }
         .section2 {
             background-color: #d0d0d0;
+            flex-direction: column;
         }
         .scroll-button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-left: 20px; /* Add space between the image and button */
         }
     </style>
 </head>
