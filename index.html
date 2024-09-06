@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizontal Scroll Example</title>
+    <title>Vertical Scroll Example</title>
     <style>
         html {
             scroll-behavior: smooth;
@@ -16,14 +16,14 @@
         }
         .scroll-container {
             display: flex;
-            width: 200vw; /* Adjust based on the number of sections */
-            height: 100vh;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            flex-direction: column; /* Change to vertical layout */
+            height: 200vh; /* Adjust based on the number of sections */
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
         }
         .section {
-            flex: 0 0 100vw;
-            height: 100vh;
+            flex: 0 0 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -31,21 +31,21 @@
         }
         .section1 {
             background-color: #f0f0f0;
-            flex-direction: row; /* Arrange items in a row */
+            flex-direction: column; /* Arrange items in a column */
         }
         .section2 {
             background-color: #f0f0f0;
-            flex-direction: row; /* Arrange items in a row */
+            flex-direction: column; /* Arrange items in a column */
         }
         .scroll-button {
             padding: 15px 25px; /* Larger padding for touch devices */
             font-size: 18px; /* Larger font size for better readability */
             cursor: pointer;
-            margin-right: 20px; /* Add space between the button and image */
             border: none;
             background-color: #007BFF;
             color: white;
             border-radius: 5px;
+            margin: 20px 0; /* Add space between the button and images */
         }
         img {
             height: 100vh; /* Scale image to the height of the viewport */
@@ -56,9 +56,6 @@
             .scroll-button {
                 padding: 10px 20px; /* Adjust padding for smaller screens */
                 font-size: 16px; /* Adjust font size for smaller screens */
-            }
-            .section {
-                flex-direction: column; /* Stack items vertically on smaller screens */
             }
             img {
                 height: auto; /* Adjust image height for smaller screens */
@@ -72,12 +69,12 @@
         <div class="section section1">
             <img src="photo1.jpeg" alt="Photo 1" />
             <button class="scroll-button" onclick="document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });">
-                Paris Trip
+                Scroll to Section 2
             </button>
         </div>
         <div id="section2" class="section section2">
             <button class="scroll-button" onclick="document.querySelector('.section1').scrollIntoView({ behavior: 'smooth' });">
-                Running Away
+                Scroll to Section 1
             </button>
             <img src="photo2.jpeg" alt="Photo 2" />
         </div>
