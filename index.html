@@ -38,14 +38,32 @@
             flex-direction: row; /* Arrange items in a row */
         }
         .scroll-button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 25px; /* Larger padding for touch devices */
+            font-size: 18px; /* Larger font size for better readability */
             cursor: pointer;
             margin-right: 20px; /* Add space between the button and image */
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
         }
         img {
             height: 100vh; /* Scale image to the height of the viewport */
             width: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure image does not overflow */
+        }
+        @media (max-width: 768px) {
+            .scroll-button {
+                padding: 10px 20px; /* Adjust padding for smaller screens */
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+            .section {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+            }
+            img {
+                height: auto; /* Adjust image height for smaller screens */
+                width: 100%; /* Ensure image takes full width */
+            }
         }
     </style>
 </head>
