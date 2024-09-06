@@ -3,26 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo with Caption</title>
+    <title>Smooth Scroll Example</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .section {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
+            flex-direction: column;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+        .section1 {
+            background-color: #f0f0f0;
+        }
+        .section2 {
+            background-color: #d0d0d0;
+        }
+        .scroll-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>My Photo</h1>
-    <img src="photo.jpeg" alt="A description of the photo">
-    <p> #ROTI </p>
+    <div class="section section1">
+        <img src="photo.jpeg" alt="Photo 1" />
+        <button class="scroll-button" onclick="document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });">
+            Scroll to Section 2
+        </button>
+    </div>
+    <div id="section2" class="section section2">
+        <img src="photo2.jpeg" alt="Photo 2" />
+        <h2>Section 2</h2>
+    </div>
 </body>
 </html>
